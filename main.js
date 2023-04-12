@@ -9,7 +9,7 @@ const createWindow = () => {
   
     win.loadURL(
       isDev
-        ? "http://localhost:3000"
+        ? "http://localhost:3000/winget-ui"
         : `file://${path.join(__dirname, "../build/index.html")}`
     );
   
