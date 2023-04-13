@@ -24,15 +24,19 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
-    "electron": "^23.2.1",
-    "sass": "^1.61.0"
+    "concurrently": "^8.0.1",
+    "cross-env": "^7.0.3",
+    "electron": "^23.2.2",
+    "sass": "^1.61.0",
+    "wait-on": "^7.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "cross-env BROWSER=none react-scripts start ",
     "build": "react-scripts build",
+    "dev": "concurrently -k \"cross-env BROWSER=none npm start\" \"npm run electron-dev\"",
+    "electron-dev": "wait-on tcp:3000 && electron .",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "electron-dev": "electron ."
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
